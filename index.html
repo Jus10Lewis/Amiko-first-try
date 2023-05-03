@@ -2,14 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice to Text</title>
+    <title>Amiko 😸</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="app.js"></script>
 </head>
 <body>
-    <h1>Voice to Text</h1>
-    <div id="output"></div>
+    <h1>Hello, I'm Amiko</h1>
+    <div class="chat-container" id="chatContainer">
+        <template id="messageTemplate">
+            <div class="message">
+                <p class="message-text">text goes here</p>
+            </div>
+        </template>
+    </div>
     <button id="recordBtn">Press and Hold to Talk</button>
-    <script src="app.js"></script>
 </body>
 </html>

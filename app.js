@@ -1,11 +1,6 @@
 const recordBtn = document.getElementById("recordBtn");
-const output = document.getElementById("output");
 
 let recognition;
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-recognition = new SpeechRecognition();
-recognition.lang = "en-US";
-recognition.interimResults = false;
 
 recordBtn.addEventListener("mousedown", () => {
     startListening();
@@ -27,23 +22,40 @@ recordBtn.addEventListener("touchend", () => {
     recordBtn.textContent = "Press and Hold to Talk";
 });
 
-
 function startListening() {
-    recognition.start();
+    if (!("webkitSpeechRecognition" in window)) {
+        alert("Your browser does not support the Web Speech API. Please try this app in Google Chrome.");
+    } else {
+        recognition = new webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = false;
+        recognition.lang = "en-US";
 
-    recognition.addEventListener("result", (e) => {
-        const transcript = e.results[0][0].transcript;
-        output.textContent = transcript;
-    });
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            displayMessage(transcript, "user");
+            setTimeout(() => {
+                displayMessage("Hello", "other");
+            }, 1000);
+        };
 
-    recognition.addEventListener("end", () => {
-        stopListening();
-        recordBtn.textContent = "Start Recording";
-    });
+        recognition.start();
+    }
 }
 
 function stopListening() {
     if (recognition) {
         recognition.stop();
     }
+}
+
+function displayMessage(text, sender = "user") {
+    const chatContainer = document.getElementById("chatContainer");
+    const messageTemplate = document.getElementById("messageTemplate");
+    const messageElement = messageTemplate.content.cloneNode(true);
+    const messageText = messageElement.querySelector(".message-text");
+
+    messageText.textContent = text;
+    messageElement.querySelector(".message").classList.add(sender);
+    chatContainer.appendChild(messageElement);
 }
