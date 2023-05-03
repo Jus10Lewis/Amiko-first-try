@@ -7,15 +7,26 @@ recognition = new SpeechRecognition();
 recognition.lang = "en-US";
 recognition.interimResults = false;
 
-recordBtn.addEventListener("click", () => {
-    if (recordBtn.textContent === "Start Recording") {
-        startListening();
-        recordBtn.textContent = "Stop Recording";
-    } else {
-        stopListening();
-        recordBtn.textContent = "Start Recording";
-    }
+recordBtn.addEventListener("mousedown", () => {
+    startListening();
+    recordBtn.textContent = "Release to Stop";
 });
+
+recordBtn.addEventListener("mouseup", () => {
+    stopListening();
+    recordBtn.textContent = "Press and Hold to Talk";
+});
+
+recordBtn.addEventListener("touchstart", () => {
+    startListening();
+    recordBtn.textContent = "Release to Stop";
+});
+
+recordBtn.addEventListener("touchend", () => {
+    stopListening();
+    recordBtn.textContent = "Press and Hold to Talk";
+});
+
 
 function startListening() {
     recognition.start();
