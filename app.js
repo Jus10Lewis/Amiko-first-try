@@ -58,4 +58,7 @@ function displayMessage(text, sender = "user") {
     messageText.textContent = text;
     messageElement.querySelector(".message").classList.add(sender);
     chatContainer.appendChild(messageElement);
+
+    // Scroll to the bottom of the chat container
+    chatContainer.scrollTop = chatContainer.scrollHeight;
 }

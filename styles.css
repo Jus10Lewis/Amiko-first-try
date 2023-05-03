@@ -3,17 +3,14 @@ body {
     text-align: center;
 }
 
-#output {
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin-bottom: 20px;
-    min-height: 200px;
-}
+
 
 button {
     background-color: #1e90ff;
     border: none;
+    border-radius: 5px;
     color: white;
+    margin-top: 5px;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
@@ -29,11 +26,19 @@ button {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    height: 80vh; /* Set the height of the chat container */
+    overflow-y: auto; /* Enable scrolling on the y-axis */
+    padding: 10px; /* Add some padding around messages */
+
+    /* Add a border and depth to the chat container */
+    border: 1px solid #ccc;
+    background-color: #fff;
+    box-shadow: inset 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .message {
     background-color: #f1f1f1;
-    padding: 10px;
+    padding: 0 10px;
     border-radius: 5px;
     max-width: 70%; /* Limit the width of message boxes to 70% of the container width */
 }
