@@ -2,25 +2,22 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     box-sizing: border-box;
-    background-color: #a1a1a1;
+    background-color: #ccc;
 }
 
 .screen{
-    height: 90vh;
+    height: 85vh;
+    width: 95%;
     max-width: 600px;
     margin: auto;
-    background-color: #ccc;
     display: flex;
     flex-direction: column;
 }
 
-header h1{
-    /* padding-top: 1px; */
-    /* height: 10%;  */
-}
+
 
 .chat-container {
-    width: 100%;
+    width: 90%;
     max-width: 490px;
     margin: 0 auto;
     display: flex;
