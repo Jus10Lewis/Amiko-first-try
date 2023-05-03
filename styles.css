@@ -21,3 +21,29 @@ button {
     font-size: 16px;
     cursor: pointer;
 }
+
+.chat-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 70%; /* Limit the width of message boxes to 70% of the container width */
+}
+
+.message.user {
+    align-self: flex-end;
+    background-color: #4caf50;
+    color: white;
+}
+
+.message.other { /* Add a new rule for the other person's messages */
+    align-self: flex-start;
+}
