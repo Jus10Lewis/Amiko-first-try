@@ -35,7 +35,7 @@ function startListening() {
             const transcript = event.results[0][0].transcript;
             displayMessage(transcript, "user");
             setTimeout(() => {
-                displayMessage("Hello", "other");
+                displayMessage("I am Groot", "other");
             }, 1000);
         };
 
